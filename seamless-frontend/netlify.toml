@@ -1,0 +1,7 @@
+
+[build]
+  publish = "dist"
+  
+[[edge_functions]]
+  path = "/api/form-handler"
+  function = "form-handler"

@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 d7f2c7c61f85b70e1fb4309645262456998b828b Morgan Baylis <morganbaylis@Morgans-MacBook-Air-2.local> 1744832227 -0700	commit (initial): Convert to monorepo: remove nested .git dirs
+d7f2c7c61f85b70e1fb4309645262456998b828b 0000000000000000000000000000000000000000 Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1744832742 -0700	Branch: renamed refs/heads/main to refs/heads/main
+d7f2c7c61f85b70e1fb4309645262456998b828b d7f2c7c61f85b70e1fb4309645262456998b828b Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1744832742 -0700	Branch: renamed refs/heads/main to refs/heads/main
+d7f2c7c61f85b70e1fb4309645262456998b828b 31d98825f04589ea017d2f90ccc980df5ee4c15c Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1744833205 -0700	commit: Add Sanity Studio and Next.js source into monorepo
+31d98825f04589ea017d2f90ccc980df5ee4c15c fb936169e7c0e512e42bc593c00ca6440452dda6 Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1745617304 -0400	commit: Add body embed/image & pageBreak support
+fb936169e7c0e512e42bc593c00ca6440452dda6 20c81ffa436504c766531344ec97557b31d7d12c Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1745619648 -0400	commit: Disable Sanity auto-updates to skip vision version check
+20c81ffa436504c766531344ec97557b31d7d12c 45de4e46f3279b9ff87ecc92f740d3bb6fff0dc8 Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1745937010 -0400	commit: Publish: add Meta Title, Meta Description, Thumbnail & Slug to Post schema
+45de4e46f3279b9ff87ecc92f740d3bb6fff0dc8 ba7c5ca070817922bc3ef008d24b062035009fd7 Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1745937497 -0400	commit: Remove large Lovable uploads from repo and ignore them
+ba7c5ca070817922bc3ef008d24b062035009fd7 57e6e3d424794b37226a25f46c32e1e2df9214af Mohammad Rustom <mohammad.rustom@theseamlessway.com> 1745941015 -0400	commit: Track Lovable uploads via Git LFS

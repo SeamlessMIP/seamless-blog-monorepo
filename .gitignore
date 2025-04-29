@@ -1,0 +1,15 @@
+# Ignore dependencies
+**/node_modules/
+
+# Next.js build files
+**/.next/
+
+# Sanity build/data
+**/.sanity/
+
+# Env files
+*.env*
+
+# macOS finder
+.DS_Store
+seamless-frontend/public/lovable-uploads/
