@@ -39,25 +39,28 @@ export default function Blog() {
 
   // Fetch posts on mount
   useEffect(() => {
-    console.log('Fetching posts...')  // Add logging
+    console.log('Fetching posts...')
     sanityClient
       .fetch(postsQuery)
       .then((data: any[]) => {
-        console.log('Received data:', data)  // Add logging
-        // Map the raw doc into our Post type
+        console.log('Received data:', data)
         const posts: Post[] = data.map((doc) => ({
           id: doc._id,
-          title: doc.title,
-          subheading: doc.subheading,
-          date: doc.date,
-          category: doc.category,
-          excerpt: doc.excerpt,
-          slug: doc.slug,
-          heroImage: doc.heroImage,
+          title: doc.title || '',
+          subheading: doc.subheading || '',
+          date: doc.date || new Date().toISOString(),
+          category: doc.category || 'Uncategorized',
+          excerpt: doc.excerpt || '',
+          slug: doc.slug || '',
+          heroImage: doc.heroImage || '',
         }))
         setAllPosts(posts)
       })
-      .catch((err) => console.error('Sanity fetch error:', err))
+      .catch((err) => {
+        console.error('Sanity fetch error:', err)
+        // Set empty array on error to prevent undefined errors
+        setAllPosts([])
+      })
   }, [])
 
   // Derive unique categories for the filter dropdown
