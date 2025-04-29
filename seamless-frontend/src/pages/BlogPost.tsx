@@ -14,15 +14,14 @@ import { RelatedPosts } from '@/components/blog/RelatedPosts'
 import { sanityClient } from '@/lib/sanityClient'
 
 // GROQ query string mapping schema fields to UI props
-const postQuery = `
-*[_type == 'post' && slug.current == $slug][0]{
+const postQuery = `*[_type == "post" && slug.current == $slug][0] {
   title,
   subheading,
   publishedAt,
   category,
   "heroImage": {
-    url: thumbnail.asset->url,
-    alt: thumbnail.alt
+    "url": thumbnail.asset->url,
+    "alt": thumbnail.alt
   },
   metaTitle,
   metaDescription,
@@ -52,9 +51,13 @@ const BlogPost: React.FC = () => {
 
   useEffect(() => {
     if (slug) {
+      console.log('Fetching post with slug:', slug)
       sanityClient
         .fetch(postQuery, { slug })
-        .then((data) => setPost(data))
+        .then((data) => {
+          console.log('Received post data:', data)
+          setPost(data)
+        })
         .catch((err) => console.error('Sanity fetch error:', err))
     }
   }, [slug])

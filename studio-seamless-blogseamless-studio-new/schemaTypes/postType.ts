@@ -57,13 +57,8 @@ export const postType = defineType({
     defineField({
       name: 'category',
       title: 'Category',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Vascular Diseases', value: 'vascular-diseases' },
-          // add more categories as needed
-        ],
-      },
+      type: 'reference',
+      to: [{ type: 'category' }],
       validation: (rule: Rule) => rule.required(),
     }),
     defineField({

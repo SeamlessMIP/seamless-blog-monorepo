@@ -67,20 +67,43 @@ const components: Partial<PortableTextReactComponents> = {
     },
   },
   types: {
-    image: ({ value }: { value: { asset: { url: string }; alt?: string } }) => (
-      <img
-        src={value.asset.url}
-        alt={value.alt ?? ''}
-        className="rounded-xl shadow-md my-6 mx-auto"
-      />
-    ),
+    image: ({ value }: any) => {
+      // Add debug logging
+      console.log('Image value:', value)
+      
+      if (!value?.asset?._ref) {
+        console.warn('Image missing asset reference')
+        return null
+      }
+
+      // Convert Sanity image reference to URL
+      const imageRef = value.asset._ref
+      const [_file, id, dimensions, extension] = imageRef.split('-')
+      const [width, height] = dimensions.split('x')
+      const url = `https://cdn.sanity.io/images/${import.meta.env.VITE_SANITY_PROJECT_ID}/production/${id}-${dimensions}.${extension}`
+
+      return (
+        <img
+          src={url}
+          alt={value.alt ?? ''}
+          width={width}
+          height={height}
+          className="rounded-xl shadow-md my-6 mx-auto"
+        />
+      )
+    },
   },
 }
 
-const BlogContent: React.FC<BlogContentProps> = ({ blocks, className }) => (
-  <article className={cn('prose prose-lg max-w-4xl mx-auto px-4', className)}>
-    <PortableText value={blocks} components={components} />
-  </article>
-)
+const BlogContent: React.FC<BlogContentProps> = ({ blocks, className }) => {
+  // Add debug logging
+  console.log('Blocks:', blocks)
+  
+  return (
+    <article className={cn('prose prose-lg max-w-4xl mx-auto px-4', className)}>
+      <PortableText value={blocks} components={components} />
+    </article>
+  )
+}
 
 export default BlogContent
